@@ -1,7 +1,7 @@
 class Zoo:
     def __init__(self, zoo_name):
-        self.name = zoo_name  # Name of the zoo
-        self.animals = []  # Empty list to store animals
+        self.name = zoo_name
+        self.animals = []
 
     def add_animal(self, new_animal):
         """Adds an animal to the zoo if it's not already in the list."""
@@ -19,17 +19,17 @@ class Zoo:
 
     def sort_animals(self):
         """Sorts and groups animals by first letter."""
-        self.animals.sort()  # Sort alphabetically
-        grouped_animals = {}  # Dictionary to store groups
+        self.animals.sort()
+        grouped_animals = {}
 
         for animal in self.animals:
-            first_letter = animal[0].upper()  # Get first letter
+            first_letter = animal[0].upper()
             if first_letter in grouped_animals:
                 grouped_animals[first_letter].append(animal)
             else:
                 grouped_animals[first_letter] = [animal]
 
-        return grouped_animals  # Return the sorted dictionary
+        return grouped_animals
 
     def get_groups(self):
         """Prints animals grouped by their first letter."""
