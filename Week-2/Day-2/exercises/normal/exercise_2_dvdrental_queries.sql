@@ -54,7 +54,7 @@ SELECT film_id, title, rental_rate
 FROM film
 ORDER BY rental_rate ASC
 OFFSET 10
-LIMIT 10;
+FETCH FIRST 10 ROW ONLY;
 
 -- Option 2: Using a subquery and NOT IN (pure SQL without LIMIT/OFFSET)
 SELECT film_id, title, rental_rate
