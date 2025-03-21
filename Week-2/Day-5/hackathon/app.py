@@ -9,50 +9,6 @@ URL de base :
 🔗 Collection Postman :
     👉 https://www.postman.com/sunset-4711/workspace/hackathon-restaurant-project/collection/36744384-de4795fe-e7c7-4117-9a90-b903ebdae5f2?action=share&creator=36744384
 
-📂 Endpoints Disponibles :
-
-1️⃣ Obtenir tous les items du menu
------------------------------------
-- Méthode : GET
-- URL     : /menu
-- Exemple : http://localhost:5000/menu
-
-2️⃣ Obtenir un item spécifique
-------------------------------
-- Méthode : GET
-- URL     : /menu/<item_id>
-- Exemple : http://localhost:5000/menu/1
-
-3️⃣ Ajouter un nouvel item au menu
------------------------------------
-- Méthode : POST
-- URL     : /menu
-- Body    : JSON (raw)
-  {
-    "name": "Pasta Carbonara",
-    "price": 12
-  }
-
-4️⃣ Modifier un item existant
-------------------------------
-- Méthode : PUT
-- URL     : /menu/<item_id>
-- Exemple : /menu/1
-- Body    : JSON (raw)
-  {
-    "name": "Pizza 4 Fromages",
-    "price": 14
-  }
-
-5️⃣ Supprimer un item du menu
-------------------------------
-- Méthode : DELETE
-- URL     : /menu/<item_id>
-- Exemple : /menu/1
-
-⚠️ Assure-toi de lancer le serveur avant de tester :
-----------------------------------------------------
-    python app.py
 """
 
 from flask import Flask, request, jsonify
