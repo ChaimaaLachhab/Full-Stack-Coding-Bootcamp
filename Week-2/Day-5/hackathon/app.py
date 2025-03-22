@@ -1,10 +1,7 @@
 """
 ===============================================
-📮 Guide pour Tester l'API avec Postman 🚀
+ Tester l'API avec Postman 🚀
 ===============================================
-
-URL de base :
-    http://localhost:5000
 
 🔗 Collection Postman :
     👉 https://www.postman.com/sunset-4711/workspace/hackathon-restaurant-project/collection/36744384-de4795fe-e7c7-4117-9a90-b903ebdae5f2?action=share&creator=36744384
