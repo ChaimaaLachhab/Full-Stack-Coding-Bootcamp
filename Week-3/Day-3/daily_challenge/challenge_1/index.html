@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Challenge: Create a solar system</title>
+        <style>
+            body {
+                background-color: black;
+                padding: 20px;
+                color: white;
+                font-family: Arial, sans-serif;
+            }
+            
+            .listPlanets {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 50px;
+                padding: 20px;
+            }
+            
+            .planet-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-bottom: 40px;
+            }
+            
+            .planet {
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                border: 2px solid rgba(255, 255, 255, 0.5);
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+                transition: transform 0.3s;
+            }
+            
+            .planet:hover {
+                transform: scale(1.1);
+            }
+            
+            .planet-name {
+                font-size: 12px;
+                font-weight: bold;
+                color: white;
+                text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+            }
+            
+            .moons-container {
+                position: relative;
+                width: 200px;
+                height: 200px;
+                margin-top: 20px;
+            }
+            
+            .moon {
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background: rgb(237, 237, 237);
+                border: 2px solid white;
+                box-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+                top: 50%;
+                left: 50%;
+                transform-origin: 0 0;
+            }
+        </style>
+    </head>
+    <body>
+
+    <section class="listPlanets"></section>
+
+    <script src="script.js"></script>
+    </body>
+</html>
