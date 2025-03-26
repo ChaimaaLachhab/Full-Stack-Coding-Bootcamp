@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Challenge: Mad Libs</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #333;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .container {
+      background: white;
+      max-width: 500px;
+      margin: auto;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 95%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #lib-button {
+      background: #28a745;
+      color: white;
+    }
+
+    #shuffle-button {
+      background: #007bff;
+      color: white;
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+
+    .story-box {
+      margin-top: 20px;
+      padding: 15px;
+      background: #fffae6;
+      border-left: 5px solid #ff9800;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+    <h1>🎭 Mad Libs - Créez votre histoire</h1>
+
+    <div class="container">
+      <form id="libform">
+        <input type="text" id="noun" placeholder="Un nom">
+        <input type="text" id="adjective" placeholder="Un adjectif">
+        <input type="text" id="person" placeholder="Un prénom">
+        <input type="text" id="verb" placeholder="Un verbe">
+        <input type="text" id="place" placeholder="Un lieu">
+        <button id="lib-button">📝 Générer l'histoire</button>
+      </form>
+  
+      <button id="shuffle-button">🔄 Changer l'histoire</button>
+  
+      <p class="story-box">
+        <span id="story">Votre histoire apparaîtra ici...</span>
+      </p>
+    </div>
+    
+  <script>
+      const stories = [
+          function(noun, adjective, person, verb, place) {
+              return `${person} went to the ${place} and saw a ${adjective} ${noun}. It decided to ${verb}.`;
+          },
+          function(noun, adjective, person, verb, place) {
+              return `${person} was feeling very ${adjective} while walking through the ${place}. Suddenly, a ${noun} appeared and they decided to ${verb}.`;
+          },
+          function(noun, adjective, person, verb, place) {
+              return `${person} was at the ${place} when they saw a ${adjective} ${noun}. It started to ${verb} and everyone laughed.`;
+          },
+          function(noun, adjective, person, verb, place) {
+              return `In a faraway ${place}, ${person} found a ${adjective} ${noun}. They immediately decided to ${verb}.`;
+          }
+      ];
+
+      document.getElementById("lib-button").addEventListener("click", function(event) {
+          event.preventDefault();
+          
+          const noun = document.getElementById("noun").value.trim();
+          const adjective = document.getElementById("adjective").value.trim();
+          const person = document.getElementById("person").value.trim();
+          const verb = document.getElementById("verb").value.trim();
+          const place = document.getElementById("place").value.trim();
+          
+          if (noun && adjective && person && verb && place) {
+              const randomIndex = Math.floor(Math.random() * stories.length);
+              const story = stories[randomIndex](noun, adjective, person, verb, place);
+              
+              document.getElementById("story").textContent = story;
+          } else {
+              alert("Please fill in all the fields.");
+          }
+      });
+
+      document.getElementById("shuffle-button").addEventListener("click", function() {
+          const noun = document.getElementById("noun").value.trim();
+          const adjective = document.getElementById("adjective").value.trim();
+          const person = document.getElementById("person").value.trim();
+          const verb = document.getElementById("verb").value.trim();
+          const place = document.getElementById("place").value.trim();
+          
+          if (noun && adjective && person && verb && place) {
+              const randomIndex = Math.floor(Math.random() * stories.length);
+              const story = stories[randomIndex](noun, adjective, person, verb, place);
+              
+              document.getElementById("story").textContent = story;
+          } else {
+              alert("Please fill in all the fields to shuffle.");
+          }
+      });
+  </script>
+
+</body>
+</html>
