@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Exercise</title>
+</head>
+<body>
+
+<form id="userForm">
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" name="firstname"><br>
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lastname"><br><br>
+  <input type="submit" value="Submit" id="submit">
+</form>
+
+<ul class="usersAnswer"></ul>
+
+<script>
+  const form = document.querySelector('form');
+  console.log(form);
+
+  const fnameInput = document.querySelector('#fname');
+  const lnameInput = document.querySelector('#lname');
+  console.log(fnameInput, lnameInput);
+
+  const firstnameInput = document.querySelector('[name="firstname"]');
+  const lastnameInput = document.querySelector('[name="lastname"]');
+  console.log(firstnameInput, lastnameInput);
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const fname = fnameInput.value;
+    const lname = lnameInput.value;
+
+    if (fname && lname) {
+      const userAnswerList = document.querySelector('.usersAnswer');
+      const liFname = document.createElement('li');
+      const liLname = document.createElement('li');
+      liFname.textContent = fname;
+      liLname.textContent = lname;
+
+      userAnswerList.appendChild(liFname);
+      userAnswerList.appendChild(liLname);
+    }
+  });
+</script>
+
+</body>
+</html>
