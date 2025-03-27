@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coloring Squares</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border;
+        }
+
+        body {
+            display: flex;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+        }
+
+        #sidebar {
+            display: grid;
+            grid-gap: 5px;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(8, 1fr);
+            width: 20%;
+            background: darkgrey;
+            padding: 10px;
+        }
+
+        .container {
+            width: 80%;
+            padding: 10px;
+        }
+
+        button {
+            grid-column: 1 / 4;
+            background: whitesmoke;
+            border-radius: 8px;
+            color: black;
+            padding: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        #clear {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            background: white;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+
+        #grid {
+            display: grid;
+            grid-template-columns: repeat(56, 20px);
+            grid-template-rows: repeat(33, 20px);
+            gap: 0.5px;
+            background: white;
+            padding: 5px;
+            border: 2px solid gray;
+        }
+
+        .cell {
+            width: 15px;
+            height: 15px;
+            background: white;
+            border: 1px solid #ddd;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div id="sidebar">
+        <button id="clear">Clear</button>
+        <div class="color" style="background: red;" data="red"></div>
+        <div class="color" style="background: orangered;" data="orangered"></div>
+        <div class="color" style="background: orange;" data="orange"></div>
+        <div class="color" style="background: yellow;" data="yellow"></div>
+        <div class="color" style="background: yellowgreen;" data="yellowgreen"></div>
+        <div class="color" style="background: lightgreen;" data="lightgreen"></div>
+        <div class="color" style="background: green;" data="green"></div>
+        <div class="color" style="background: turquoise;" data="turquoise"></div>
+        <div class="color" style="background: cyan;" data="cyan"></div>
+        <div class="color" style="background: lightskyblue;" data="lightskyblue"></div>
+        <div class="color" style="background: dodgerblue;" data="dodgerblue"></div>
+        <div class="color" style="background: blue;" data="blue"></div>
+        <div class="color" style="background: darkblue;" data="darkblue"></div>
+        <div class="color" style="background: indigo;" data="indigo"></div>
+        <div class="color" style="background: darkmagenta;" data="darkmagenta"></div>
+        <div class="color" style="background: violet;" data="violet"></div>
+        <div class="color" style="background: lightpink;" data="lightpink"></div>
+        <div class="color" style="background: lightgray;" data="lightgray"></div>
+        <div class="color" style="background: gray;" data="gray"></div>
+        <div class="color" style="background: black;" data="black"></div>
+        <div class="color" style="background: white;" data="white"></div>
+    </div>
+    
+
+    <div class="container">
+        <div id="grid"></div>
+    </div>
+
+    <script>
+        const grid = document.getElementById("grid");
+        const colors = document.querySelectorAll(".color");
+        const clearButton = document.getElementById("clear");
+        let selectedColor = "white";
+        let isDrawing = false;
+
+        colors.forEach(color => {
+            color.addEventListener("click", () => {
+                selectedColor = color.getAttribute("data");
+            });
+        });
+
+        for (let i = 0; i < 1848; i++) {
+            const cell = document.createElement("div");
+            cell.classList.add("cell");
+            grid.appendChild(cell);
+        }
+
+        grid.addEventListener("mousedown", () => isDrawing = true);
+        grid.addEventListener("mouseup", () => isDrawing = false);
+        grid.addEventListener("mouseleave", () => isDrawing = false);
+
+        grid.addEventListener("mouseover", (e) => {
+            if (isDrawing && e.target.classList.contains("cell")) {
+                e.target.style.backgroundColor = selectedColor;
+            }
+        });
+        grid.addEventListener("click", (e) => {
+            if (e.target.classList.contains("cell")) {
+                e.target.style.backgroundColor = selectedColor;
+            }
+        });
+
+        clearButton.addEventListener("click", () => {
+            document.querySelectorAll(".cell").forEach(cell => {
+                cell.style.backgroundColor = "white";
+            });
+        });
+    </script>
+</body>
+
+</html>
