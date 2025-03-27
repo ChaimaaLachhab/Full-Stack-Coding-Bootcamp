@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amdah Diniya</title>
+    <style>
+        body {
+            background: url('https://static.vecteezy.com/ti/vetor-gratis/p1/4654617-luxo-mandala-fundo-com-dourado-arabesco-padrao-arabe-islamico-leste-estilo-ramadan-estilo-decorativo-mandala-mandala-para-imprimir-poster-capa-brochura-folheto-banner-gratis-vetor.jpg') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .key {
+            width: 100px;
+            height: 100px;
+            background: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 20px;
+            border: 3px solid yellow;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .key.playing {
+            transform: scale(1.1);
+            border-color: white;
+            box-shadow: 0 0 10px yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="key" data-key="65">A<br><span>Madih 1</span></div>
+        <div class="key" data-key="83">S<br><span>Madih 2</span></div>
+        <div class="key" data-key="68">D<br><span>Madih 3</span></div>
+        <div class="key" data-key="70">F<br><span>Madih 4</span></div>
+    </div>
+
+    <audio data-key="65" src="audio/madih1.mp3"></audio>
+    <audio data-key="83" src="audio/madih2.mp3"></audio>
+    <audio data-key="68" src="audio/madih3.mp3"></audio>
+    <audio data-key="70" src="audio/madih4.mp3"></audio>
+
+    <script>
+        function playSound(e) {
+            const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+            const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+            if (!audio) return;
+
+            key.classList.add("playing");
+            audio.currentTime = 0;
+            audio.play();
+        }
+
+        function removeTransition(e) {
+            if (e.propertyName !== "transform") return;
+            this.classList.remove("playing");
+        }
+
+        const keys = document.querySelectorAll(".key");
+        keys.forEach(key => key.addEventListener("transitionend", removeTransition));
+
+        window.addEventListener("keydown", playSound);
+
+    </script>
+</body>
+
+</html>
