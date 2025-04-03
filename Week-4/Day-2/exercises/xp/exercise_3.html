@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1> Exercises XP </h1>
+    <h2> 🌟 Exercise 3 : Analyzing </h2>
+
+    <script>
+        // ------1------
+        const fruits = ["apple", "orange"];
+        const vegetables = ["carrot", "potato"];
+
+        const result = ['bread', ...vegetables, 'chicken', ...fruits];
+        console.log(result);
+
+        // output : ['bread', 'carrot', 'potato', 'chicken', 'apple', 'orange']
+
+
+
+        // ------2------
+        const country = "USA";
+        console.log([...country]);
+
+        // output : ['U', 'S', 'A']
+
+
+
+        // ------Bonus------
+        let newArray = [...[, ,]];
+        console.log(newArray);
+
+        // output : [undefined, undefined] == Le spread operator préserve les trous d'un tableau vide
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1> Exercises XP </h1>
+    <h2> 🌟 Exercise 1 : Colors </h2>
+
+    <script>
+        const colors = ["Blue", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow"];
+
+        for (let i in colors) {
+            if (colors[i] == "Violet") {
+                console.log("Yeah")
+            }
+
+            console.log(`${++i}# choice is ${colors[i]}.`)
+
+        }
+
+
+        colors.forEach((color, index) => {
+            console.log(`${index + 1}# choice is ${color}.`);
+        });
+
+        console.log(colors.includes("Violet") ? "Yeah" : "No...");
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+let [c, d, ...rest] = [10, 20, 30, 40, 50];
+console.log('c: ',c); // c: 10
+console.log('d: ',d); // d: 20
+console.log('rest: ',rest); 
+
+const rainbow = ['red', 'orange', 'yellow'];
+
+// Cloning with array destructuring and spread operator
+const [...rainbowClone] = rainbow;
+
+console.log(rainbow === rainbowClone); // false
+console.log(rainbowClone); // ['red', 'orange', 'yellow']
+
+rainbow.push("violet");
+console.log(rainbow); //['red', 'orange', 'yellow', 'violet']
+console.log(rainbowClone); // ['red', 'orange', 'yellow']
+
+let prices = [12, 20, 18];
+let newPriceArray = [...prices];
+console.log(newPriceArray);
+
+
+let alphabets = ["A", ..."BCD", "E"];
+console.log(alphabets);
+    </script>
+</body>
+</html>

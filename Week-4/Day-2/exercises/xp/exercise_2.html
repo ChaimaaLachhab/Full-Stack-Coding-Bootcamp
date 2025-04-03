@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1> Exercises XP </h1>
+    <h2> 🌟 Exercise 2 : Colors #2 </h2>
+
+    <script>
+        const colors = ["Blue", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow"];
+        const ordinal = ["th", "st", "nd", "rd"];
+
+        colors.forEach((color, index) => {
+            let suffix = (index + 1 < 4) ? ordinal[index + 1] : ordinal[0];
+            console.log(`${index + 1}${suffix} choice is ${color}.`);
+        });
+    </script>
+</body>
+
+</html>
