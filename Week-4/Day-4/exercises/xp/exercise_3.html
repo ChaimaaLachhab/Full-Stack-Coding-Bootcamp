@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 3: JSON Mario</title>
+</head>
+<body>
+    <h1>Exercises XP</h1>
+    <h2>🌟 Exercise 3: JSON Mario</h2>
+
+    <script>
+        const marioGame = {
+            detail: "An amazing game!",
+            characters: {
+                mario: {
+                    description: "Small and jumpy. Likes princesses.",
+                    height: 10,
+                    weight: 3,
+                    speed: 12,
+                },
+                bowser: {
+                    description: "Big and green, Hates princesses.",
+                    height: 16,
+                    weight: 6,
+                    speed: 4,
+                },
+                princessPeach: {
+                    description: "Beautiful princess.",
+                    height: 12,
+                    weight: 2,
+                    speed: 2,
+                }
+            },
+        };
+
+        // 1.
+        const jsonMarioGame = JSON.stringify(marioGame);
+        console.log("JSON Object:", jsonMarioGame);
+
+        // 2.
+        const prettyJsonMarioGame = JSON.stringify(marioGame, null, 2);
+        console.log("Pretty JSON Object:", prettyJsonMarioGame);
+
+        // 3.
+        debugger;
+    </script>
+
+    <p>Open the browser console to see the JSON object.</p>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Form Data</title>
+</head>
+<body>
+    <h1>Received Form Data</h1>
+    <section id="output">
+        <p>Loading...</p>
+    </section>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const name = params.get("name");
+        const lastname = params.get("lastname");
+
+        const outputSection = document.getElementById("output");
+        if (name && lastname) {
+            outputSection.innerHTML = `<p><strong>First Name:</strong> ${name}</p>
+                                       <p><strong>Last Name:</strong> ${lastname}</p>`;
+        } else {
+            outputSection.innerHTML = "<p>No data received.</p>";
+        }
+    </script>
+</body>
+</html>

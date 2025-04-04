@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 2: HTML Form #2</title>
+</head>
+<body>
+    <h1>Exercises XP</h1>
+    <h2>🌟 Exercise 2: HTML Form #2</h2>
+
+    <form action="exercise_2_http_forms.html" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="4" cols="30" required></textarea><br><br>
+
+        <input type="submit" value="Send">
+    </form>
+
+    <p>When you click "Send", the form data will not appear in the URL. Instead, you can see it in the **Network Tab** of your browser's developer tools.</p>
+</body>
+</html>
