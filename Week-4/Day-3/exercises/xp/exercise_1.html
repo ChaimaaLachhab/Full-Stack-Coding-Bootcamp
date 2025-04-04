@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 1: Location</title>
+</head>
+<body>
+    <h1>Exercises XP</h1>
+    <h2>🌟 Exercise 1: Location</h2>
+
+    <script>
+        const person = {
+            name: 'John Doe',
+            age: 25,
+            location: {
+                country: 'Canada',
+                city: 'Vancouver',
+                coordinates: [49.2827, -123.1207]
+            }
+        };
+
+        const { name, location: { country, city, coordinates: [lat, lng] } } = person;
+
+        console.log(`I am ${name} from ${city}, ${country}. Latitude(${lat}), Longitude(${lng})`);
+    </script>
+</body>
+</html>

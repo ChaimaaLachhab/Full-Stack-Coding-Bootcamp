@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 3: User & ID</title>
+</head>
+<body>
+    <h1>Exercises XP</h1>
+    <h2>🌟 Exercise 3: User & ID</h2>
+
+    <script>
+        const users = { user1: 18273, user2: 92833, user3: 90315 };
+
+        // Convert to array
+        const usersArray = Object.entries(users);
+        console.log(usersArray);
+
+        // Multiply IDs by 2
+        const modifiedUsersArray = usersArray.map(([user, id]) => [user, id * 2]);
+        console.log(modifiedUsersArray);
+    </script>
+</body>
+</html>

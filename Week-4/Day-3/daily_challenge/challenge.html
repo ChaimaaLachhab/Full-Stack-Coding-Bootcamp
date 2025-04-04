@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Challenge: Creating Objects</title>
+</head>
+<body>
+    <h1>Daily Challenge</h1>
+    <h2>🌟 Creating Objects</h2>
+
+    <script>
+        class Video {
+            constructor(title, uploader, time) {
+                this.title = title;
+                this.uploader = uploader;
+                this.time = time;
+            }
+
+            watch() {
+                console.log(`${this.uploader} watched all ${this.time} seconds of "${this.title}"!`);
+            }
+        }
+
+        const video1 = new Video("JavaScript Tutorial", "Alice", 300);
+        const video2 = new Video("Python Basics", "Bob", 450);
+
+        video1.watch();
+        video2.watch();
+
+        const videoData = [
+            { title: "React Crash Course", uploader: "Charlie", time: 600 },
+            { title: "Node.js Guide", uploader: "Dave", time: 720 },
+            { title: "CSS Flexbox Explained", uploader: "Eve", time: 400 },
+            { title: "Vue.js for Beginners", uploader: "Frank", time: 500 },
+            { title: "Django REST Framework", uploader: "Grace", time: 850 }
+        ];
+
+        const videoInstances = videoData.map(video => new Video(video.title, video.uploader, video.time));
+
+        videoInstances.forEach(video => video.watch());
+    </script>
+</body>
+</html>
