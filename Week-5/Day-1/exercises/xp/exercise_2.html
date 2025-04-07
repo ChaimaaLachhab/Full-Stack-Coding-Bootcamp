@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 2: Promises</title>
+</head>
+<body>
+    <h1>Exercises XP</h1>
+    <h2>🌟 Exercise 2: Promises</h2>
+
+    <script>
+        const delayedSuccess = new Promise((resolve) => {
+            setTimeout(() => {
+                resolve("Success after 4 seconds");
+            }, 4000);
+        });
+
+        delayedSuccess.then(result => console.log(result));
+    </script>
+</body>
+</html>

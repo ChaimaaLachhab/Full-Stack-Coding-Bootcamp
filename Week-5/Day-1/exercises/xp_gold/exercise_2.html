@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 2: Analyse Promise.all()</title>
+</head>
+<body>
+    <h1>Exercises XP Gold</h1>
+    <h2>🌟 Exercise 2: Analyse Promise.all()</h2>
+
+    <script>
+        function timesTwoAsync(x) {
+            return new Promise(resolve => resolve(x * 2));
+        }
+
+        const arr = [1, 2, 3];
+        const promiseArr = arr.map(timesTwoAsync);
+
+        Promise.all(promiseArr)
+            .then(result => {
+                console.log("Result:", result);
+            });
+
+        /*
+        Explanation:
+
+        - `arr.map(timesTwoAsync)` calls the function on each element of [1, 2, 3]
+        - Each call returns a Promise that resolves to the value * 2
+        - So we get an array of promises: [Promise(2), Promise(4), Promise(6)]
+
+        - Promise.all waits for all 3 promises to resolve, and then gives: [2, 4, 6]
+        */
+    </script>
+</body>
+</html>

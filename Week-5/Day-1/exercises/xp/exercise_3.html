@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 3: Resolve & Reject</title>
+</head>
+<body>
+    <h1>Exercises XP</h1>
+    <h2>🌟 Exercise 3: Resolve & Reject</h2>
+
+    <script>
+        // Resolves with 3
+        Promise.resolve(3)
+            .then(value => console.log("Resolved with:", value));
+
+        // Rejects with "Boo!"
+        Promise.reject("Boo!")
+            .catch(error => console.log("Rejected with:", error));
+    </script>
+</body>
+</html>

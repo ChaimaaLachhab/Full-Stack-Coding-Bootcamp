@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 1: Promise.all()</title>
+</head>
+<body>
+    <h1>Exercises XP Gold</h1>
+    <h2>🌟 Exercise 1: Promise.all()</h2>
+
+    <script>
+        const promise1 = Promise.resolve(3);
+        const promise2 = 42;
+        const promise3 = new Promise((resolve, reject) => {
+            setTimeout(resolve, 3000, 'foo');
+        });
+
+        Promise.all([promise1, promise2, promise3])
+            .then(values => {
+                console.log("Resolved values:", values);
+            })
+            .catch(error => {
+                console.error("One of the promises rejected:", error);
+            });
+
+        /*
+        How Promise.all works:
+
+        - It takes an array of promises.
+        - It waits until **all** promises resolve.
+        - If they do, it returns a single promise with an array of the resolved values.
+        - If **any** promise is rejected, it immediately rejects with that error.
+
+        In this case:
+        - promise1 resolves immediately with 3
+        - promise2 is just a number (42), treated as resolved
+        - promise3 resolves after 3 seconds with 'foo'
+
+        So, the final output after 3 seconds: [3, 42, "foo"]
+        */
+    </script>
+</body>
+</html>
