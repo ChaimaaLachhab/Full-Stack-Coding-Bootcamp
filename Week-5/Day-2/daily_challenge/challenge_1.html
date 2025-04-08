@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Daily Challenge: Gifs</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    .gif-container {
+      margin-top: 20px;
+    }
+    .gif-item {
+      margin-bottom: 15px;
+      position: relative;
+    }
+    .gif-item button {
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Giphy Random GIF Fetcher</h1>
+
+  <form id="gifForm">
+    <input type="text" id="searchInput" placeholder="Enter category..." required />
+    <button type="submit">Get Random GIF</button>
+  </form>
+
+  <button id="deleteAllBtn" style="margin-top:10px;">DELETE ALL</button>
+
+  <div class="gif-container" id="gifContainer"></div>
+
+  <script>
+    const form = document.getElementById("gifForm");
+    const input = document.getElementById("searchInput");
+    const container = document.getElementById("gifContainer");
+    const deleteAllBtn = document.getElementById("deleteAllBtn");
+
+    const apiKey = "hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My";
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const searchTerm = input.value.trim();
+      if (!searchTerm) return;
+
+      try {
+        const res = await fetch(`https://api.giphy.com/v1/gifs/random?tag=${searchTerm}&rating=g&api_key=${apiKey}`);
+        if (!res.ok) throw new Error("GIF not found or API error.");
+        const data = await res.json();
+        const gifUrl = data.data.images.original.url;
+
+        // Create DOM elements
+        const gifDiv = document.createElement("div");
+        gifDiv.className = "gif-item";
+
+        const gifImg = document.createElement("img");
+        gifImg.src = gifUrl;
+        gifImg.alt = searchTerm;
+        gifImg.style.maxWidth = "300px";
+
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "DELETE";
+        deleteBtn.onclick = () => gifDiv.remove();
+
+        gifDiv.appendChild(deleteBtn);
+        gifDiv.appendChild(gifImg);
+        container.appendChild(gifDiv);
+
+      } catch (error) {
+        console.error("Fetch error:", error);
+        alert("Couldn't fetch GIF");
+      }
+    });
+
+    deleteAllBtn.addEventListener("click", () => {
+      container.innerHTML = "";
+    });
+  </script>
+
+</body>
+</html>
