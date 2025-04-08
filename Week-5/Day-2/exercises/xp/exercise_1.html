@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercises XP - Fetch & Async/Await</title>
+</head>
+<body>
+  <h1>Exercises XP</h1>
+  <h2>🌟 Exercise 1: Giphy API - Fetch "hilarious"</h2>
+
+  <script>
+    const url1 = "https://api.giphy.com/v1/gifs/search?q=hilarious&rating=g&api_key=hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My";
+
+    fetch(url1)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log("Exercise 1:", data);
+      })
+      .catch(error => {
+        console.error("Fetch error in Exercise 1:", error);
+      });
+  </script>
+</body>
+</html>

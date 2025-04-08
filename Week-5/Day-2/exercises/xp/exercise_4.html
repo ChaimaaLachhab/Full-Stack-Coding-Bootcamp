@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2>🌟 Exercise 4: Analyze</h2>
+
+    <p>Open the console to see what happens</p>
+
+    <script>
+        function resolveAfter2Seconds() {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    resolve('resolved');
+                }, 2000);
+            });
+        }
+
+        async function asyncCall() {
+            console.log('Exercise 4: calling');
+            let result = await resolveAfter2Seconds();
+            console.log("Exercise 4:", result);
+        }
+
+        asyncCall();
+
+        // 1. calling
+        // 2. (after 2 seconds) resolved
+        // Because the function `asyncCall` waits for `resolveAfter2Seconds()` to complete.
+    </script>
+</body>
+
+</html>
