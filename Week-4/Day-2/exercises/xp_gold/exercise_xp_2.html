@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Exercises XP Gold - JS Basics</title>
+</head>
+<body>
+  <h1>Exercises XP Gold</h1>
+  
+  <h2>🌟 Exercise 1: Sum elements</h2>
+  <p>Write a JavaScript program to find the sum of all elements in an array.</p>
+  <script>
+    const numbers = [1, 2, 3, 4, 5];
+    const sum = numbers.reduce((acc, val) => acc + val, 0);
+    console.log("Exercise 1 - Sum of elements:", sum);
+  </script>
+
+  <h2>🌟 Exercise 2: Remove Duplicates</h2>
+  <p>Write a JavaScript program to remove duplicate items in an array.</p>
+  <script>
+    const items = [1, 2, 3, 2, 4, 1, 5];
+    const uniqueItems = [...new Set(items)];
+    console.log("Exercise 2 - Unique items:", uniqueItems);
+  </script>
+
+  <h2>🌟 Exercise 3: Remove certain values</h2>
+  <p>Remove null, 0, "", false, undefined and NaN values from an array.</p>
+  <script>
+    const dirtyArray = [NaN, 0, 15, false, -22, '', undefined, 47, null];
+    const cleanArray = dirtyArray.filter(item => Boolean(item));
+    console.log("Exercise 3 - Cleaned array:", cleanArray);
+  </script>
+
+  <h2>🌟 Exercise 4: Repeat please!</h2>
+  <p>Write a function to concatenate a given string n times (default is 1).</p>
+  <script>
+    function repeat(str, n = 1) {
+      return str.repeat(n);
+    }
+    console.log("Exercise 4 - Repeat:", repeat('Ha!', 3));
+  </script>
+
+  <h2>🌟 Exercise 5: Turtle & Rabbit</h2>
+  <p>Line up the Turtle and the Rabbit at the start line.</p>
+  <script>
+    const startLine = '     ||<- Start line';
+    let turtle = '🐢';
+    let rabbit = '🐇';
+
+    turtle = turtle.padStart(9);
+    rabbit = rabbit.padStart(9);
+
+    console.log("Exercise 5:");
+    console.log(startLine);
+    console.log(turtle);
+    console.log(rabbit);
+
+    const fancyTurtle = turtle.trim().padEnd(9, '=');
+    console.log("Modified turtle with trim + padEnd:", fancyTurtle);
+  </script>
+
+</body>
+</html>
