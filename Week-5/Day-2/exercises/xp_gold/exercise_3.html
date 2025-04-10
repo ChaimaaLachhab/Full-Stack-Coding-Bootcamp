@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 3: Analyze Concurrent</title>
+</head>
+<body>
+  <h1>Exercises XP Gold</h1>
+  <h2>🌟 Exercise 3: Analyze #3</h2>
+
+  <script>
+    let resolveAfter2Seconds = function () {
+      console.log("starting slow promise");
+      return new Promise(resolve => {
+        setTimeout(function () {
+          resolve("slow");
+          console.log("slow promise is done");
+        }, 2000);
+      });
+    };
+
+    let resolveAfter1Second = function () {
+      console.log("starting fast promise");
+      return new Promise(resolve => {
+        setTimeout(function () {
+          resolve("fast");
+          console.log("fast promise is done");
+        }, 1000);
+      });
+    };
+
+    let concurrentStart = async function () {
+      console.log('==CONCURRENT START with await==');
+      const slow = resolveAfter2Seconds();
+      const fast = resolveAfter1Second();
+      console.log(await slow);
+      console.log(await fast);
+    }
+
+    setTimeout(concurrentStart, 4000);
+  </script>
+</body>
+</html>

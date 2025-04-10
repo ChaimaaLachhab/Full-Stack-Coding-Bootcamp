@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 1: Giphy API</title>
+</head>
+<body>
+  <h1>Exercises XP Gold</h1>
+  <h2>🌟 Exercise 1: Giphy API #2</h2>
+  <button onclick="fetchGif()">Get GIF</button>
+  <div id="gif-container"></div>
+
+  <script>
+    async function fetchGif() {
+      const apiKey = "dc6zaTOxFJmzC";
+      const url = `https://api.giphy.com/v1/gifs/random?api_key=${apiKey}`;
+
+      try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error('Error fetching gif');
+        const data = await response.json();
+        const gifUrl = data.data.images.original.url;
+
+        const container = document.getElementById('gif-container');
+        container.innerHTML = '';
+        const img = document.createElement('img');
+        img.src = gifUrl;
+        container.appendChild(img);
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    }
+  </script>
+</body>
+</html>

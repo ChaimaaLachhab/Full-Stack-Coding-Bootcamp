@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 4: Async Fetch</title>
+</head>
+<body>
+  <h1>Exercises XP Gold</h1>
+  <h2>🌟 Exercise 4: Modify Fetch with Async/Await</h2>
+
+  <script>
+    const urls = [
+      "https://jsonplaceholder.typicode.com/users",
+      "https://jsonplaceholder.typicode.com/posts",
+      "https://jsonplaceholder.typicode.com/albums"
+    ];
+
+    const getData = async function () {
+      try {
+        const results = await Promise.all(
+          urls.map(async url => {
+            const res = await fetch(url);
+            if (!res.ok) throw new Error('Fetch failed');
+            return await res.json();
+          })
+        );
+        const [users, posts, albums] = results;
+        console.log("users", users);
+        console.log("posts", posts);
+        console.log("albums", albums);
+      } catch (error) {
+        console.log("ooooooops", error.message);
+      }
+    };
+
+    getData();
+  </script>
+</body>
+</html>
