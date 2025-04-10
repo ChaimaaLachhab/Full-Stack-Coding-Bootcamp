@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercises XP Gold</title>
+</head>
+<body>
+  <h1>Exercises XP Gold</h1>
+  <h2>🌟 Exercise 5: Composing</h2>
+  <p>
+    const compose = (f, g) => (a) => f(g(a));<br>
+    const add1 = (num) => num + 1;<br>
+    const add5 = (num) => num + 5;<br>
+    compose(add1, add5)(10);
+  </p>
+
+  <script>
+    const compose = (f, g) => (a) => f(g(a));
+    const add1 = (num) => num + 1;
+    const add5b = (num) => num + 5;
+    console.log("Exercise 5 result:", compose(add1, add5b)(10));
+  </script>
+</body>
+</html>

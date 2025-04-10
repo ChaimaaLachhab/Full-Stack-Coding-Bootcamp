@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercises XP Ninja</title>
+</head>
+<body>
+  <h1>Exercises XP Ninja</h1>
+  <h2>🌟 Exercise 1: Merge Words</h2>
+
+  <script>
+    const mergeWords = (word) => {
+      let sentence = word;
+      const inner = (nextWord) => {
+        if (nextWord === undefined) {
+          return sentence;
+        }
+        sentence += ' ' + nextWord;
+        return inner;
+      };
+      return inner;
+    };
+
+    console.log("Exercise 1 result 1:", mergeWords("Hello")());
+    console.log("Exercise 1 result 2:", mergeWords("There")("is")("no")("spoon.")());
+  </script>
+</body>
+</html>

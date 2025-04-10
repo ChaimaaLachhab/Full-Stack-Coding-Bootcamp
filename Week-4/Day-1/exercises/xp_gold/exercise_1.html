@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercises XP Gold</title>
+</head>
+<body>
+  <h1>Exercises XP Gold</h1>
+  <h2>🌟 Exercise 1: Nested functions</h2>
+  <p>Change the code ci-dessous en fonctions fléchées imbriquées :</p>
+
+  <script>
+    const landscape = () => {
+      let result = "";
+
+      const flat = (x) => {
+        for (let count = 0; count < x; count++) {
+          result += "_";
+        }
+      };
+
+      const mountain = (x) => {
+        result += "/";
+        for (let counter = 0; counter < x; counter++) {
+          result += "'";
+        }
+        result += "\\";
+      };
+
+      flat(4);
+      mountain(4);
+      flat(4);
+
+      console.log("Exercise 1 result:", result);
+    };
+
+    landscape();
+  </script>
+
+</body>
+</html>
