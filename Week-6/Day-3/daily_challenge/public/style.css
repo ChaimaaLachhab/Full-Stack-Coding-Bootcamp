@@ -1,0 +1,91 @@
+/* public/style.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(120deg, #2980b9, #6dd5fa);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  form {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  form input {
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  form button {
+    padding: 10px;
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  form button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  form button:hover:enabled {
+    background-color: #1a6fa0;
+  }
+  
+
+/* Style pour la page d'accueil */
+.welcome-container {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    margin: 20px;
+  }
+  
+  .welcome-container h1 {
+    color: #2980b9;
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  
+  .welcome-container p {
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .welcome-container .btn {
+    display: inline-block;
+    padding: 12px 20px;
+    margin-top: 10px;
+    text-decoration: none;
+    background-color: #2980b9;
+    color: white;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .welcome-container .btn:hover {
+    background-color: #1a6fa0;
+  }

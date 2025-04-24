@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Connexion</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="form-container">
+    <h1>Se connecter</h1>
+    <form id="login-form">
+      <label for="username">Nom d'utilisateur:</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="password">Mot de passe:</label>
+      <input type="password" id="password" name="password" required>
+
+      <button type="submit" id="submit-btn">Se connecter</button>
+    </form>
+    <p id="login-response"></p>
+  </div>
+
+  <script>
+    const loginForm = document.getElementById('login-form');
+    const loginResponse = document.getElementById('login-response');
+
+    loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(loginForm);
+      
+      const dataObj = {};
+      data.forEach((value, key) => {
+        dataObj[key] = value;
+      });
+
+      const response = await fetch('/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(dataObj),
+      });
+
+      const result = await response.json();
+      loginResponse.textContent = result.message;
+    });
+  </script>
+</body>
+</html>
